@@ -10,15 +10,28 @@
           <maven.compiler.target>1.8</maven.compiler.target>
           <failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
-  
-  <dependencies>
-     <!-- l'api officielle jax-rs est codée
-          dans jersey ou dans cxf ou .... -->
-     <dependency>
-	    <groupId>org.glassfish.jersey.core</groupId>
-	    <artifactId>jersey-client</artifactId>
-	    <version>2.26-b03</version>
-	</dependency>
-  </dependencies>
+
+    <dependencies>
+        <!-- l'api officielle jax-rs est codée
+             dans jersey ou dans cxf ou .... -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.26-b03</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.26-b03</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
+        </dependency>
+
+    </dependencies>
   
 </project>
