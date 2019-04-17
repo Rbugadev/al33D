@@ -1,23 +1,23 @@
 package fr.afcepf.al33.dto;
-
-import lombok.*;
+//.payload quelquefois utilisé à la place de .dto
 
 import java.io.Serializable;
 
-// DTO = Data Transfert Object
-// Objet de données transférées à travers le réseau (via Rest ou Soap ou Rmi)
-// données pas stockés dans la basse de données
-// surtout pas de @Entity
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@ToString @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+//@Data @AllArgsConstructor @NoArgsConstructor
+public class ResConv implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	private Double montant;
+	private String source;
+	private String cible;
+	private Double montantConverti;
 
-//@ToString @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-@Data @AllArgsConstructor
-public class ResConv implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    private Double montant;
-    private String source;
-    private String cible;
-    private Double montantConverti;
 }

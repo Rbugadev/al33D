@@ -15,23 +15,22 @@ public class ConvertisseurDelegateRest implements ConvertisseurDelegate {
 	private String debutUrlDevise="http://localhost:8080/springBootWebService/rest/devises";
 	public ConvertisseurDelegateRest() {
 		this.jaxrs2client = ClientBuilder.newClient()
-				.register(JacksonFeature.class);
+				            .register(JacksonFeature.class);
 	}
-
 	@Override
 	public double convertir(double montant, String source, String cible) {
 		//..../rest/devises/convertir?montant=50&source=EUR&cible=USD
 		WebTarget convTarget = jaxrs2client.target(debutUrlDevise)
-				.path("convertir")
-				.queryParam("montant", montant)
-				.queryParam("source", source)
-				.queryParam("cible", cible);
-
+				                           .path("convertir")
+				                           .queryParam("montant", montant)
+										   .queryParam("source", source)
+										   .queryParam("cible", cible);
+		
 		/*String jsonStringRes= convTarget.request(MediaType.APPLICATION_JSON_TYPE)
 		                .get().readEntity(String.class);
 		System.out.println("jsonStringRes="+jsonStringRes);*/
 		ResConv resConv= convTarget.request(MediaType.APPLICATION_JSON_TYPE)
-				.get().readEntity(ResConv.class);
+                .get().readEntity(ResConv.class);
 		return resConv.getMontantConverti();
 	}
 
@@ -53,6 +52,6 @@ public class ConvertisseurDelegateRest implements ConvertisseurDelegate {
 		return 0;
 	}
 
-
+	
 
 }
